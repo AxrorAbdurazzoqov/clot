@@ -1,7 +1,7 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/font_style/font_style_const.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:clot/src/core/utils/mock_data.dart';
 import 'package:clot/src/features/product/page/product_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,7 +28,7 @@ class CustomInfoCartWidget extends StatelessWidget {
         Navigator.push(context, CupertinoPageRoute(builder: (context) => ProductScreen(model: data[modelTitle]![index])));
       },
       child: Container(
-        decoration: BoxDecoration(color: isLight ? ColorConst.grey : ColorConst.darkBg),
+        decoration: BoxDecoration(color: isLight ? ColorConst.instance.grey : ColorConst.instance.darkBg),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -50,7 +50,7 @@ class CustomInfoCartWidget extends StatelessWidget {
                     icon: SvgPicture.asset(
                       AppVectors.instance.favourite,
                       height: 24,
-                      colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.grey, BlendMode.srcIn),
+                      colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.black : ColorConst.instance.grey, BlendMode.srcIn),
                     ),
                   ),
                 )
@@ -78,7 +78,7 @@ class CustomInfoCartWidget extends StatelessWidget {
                           ? const SizedBox()
                           : Text(
                               '\$${data[modelTitle]![index].discount.toString()}',
-                              style: FontStyleConst.small.copyWith(decoration: TextDecoration.lineThrough, color: ColorConst.black.withOpacity(0.5)),
+                              style: FontStyleConst.small.copyWith(decoration: TextDecoration.lineThrough, color: ColorConst.instance.black.withOpacity(0.5)),
                             ),
                     ],
                   ),

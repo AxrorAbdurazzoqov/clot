@@ -17,7 +17,7 @@ class OrderScreen extends StatelessWidget {
         title: 'Orders',
       ),
       body: context.watch<OrderProvider>().orders.isEmpty
-          ?  NoSomethingWidget(icon: AppVectors.instance.noOrders, title: 'No Orders yet')
+          ? NoSomethingWidget(icon: AppVectors.instance.noOrders, title: 'No Orders yet')
           : Column(
               children: [
                 Container(
@@ -38,7 +38,7 @@ class OrderScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                             margin: const EdgeInsets.only(right: 13),
                             decoration: BoxDecoration(
-                              color: ColorConst.cPrimary,
+                              color: ColorConst.instance.cPrimary,
                               borderRadius: BorderRadius.circular(100),
                             ),
                             child: Text(text.substring(text.indexOf('.') + 1)),

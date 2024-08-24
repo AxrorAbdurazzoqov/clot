@@ -20,13 +20,13 @@ class CustomElevatedButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: ColorConst.cPrimary,
+          color: ColorConst.instance.cPrimary,
           borderRadius: BorderRadius.circular(100),
         ),
         height: height,
         width: width,
         child: Center(
-          child: Text(text, style: TextStyle(fontSize: 16, color: ColorConst.white, fontFamily: 'Poppins')),
+          child: Text(text, style: TextStyle(fontSize: 16, color: ColorConst.instance.white, fontFamily: 'Poppins')),
         ),
       ),
     );

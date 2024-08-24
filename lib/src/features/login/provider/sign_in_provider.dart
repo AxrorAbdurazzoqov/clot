@@ -1,6 +1,6 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:flutter/material.dart';
 
 class SignInProvider extends ChangeNotifier {
@@ -19,5 +19,5 @@ class SignInProvider extends ChangeNotifier {
     },
   ];
 
-  Color checkAppleIcon(context) => checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.white;
+  Color checkAppleIcon(context) => checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.black : ColorConst.instance.white;
 }

@@ -48,7 +48,7 @@ class NotificationScreen extends StatelessWidget {
                           trailingIcon: CupertinoIcons.delete,
                           child: Text(
                             'Delete notification',
-                            style: TextStyle(color: ColorConst.red),
+                            style: TextStyle(color: ColorConst.instance.red),
                           ),
                         ),
                       ],

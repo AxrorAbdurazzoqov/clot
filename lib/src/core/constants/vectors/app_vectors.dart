@@ -1,8 +1,8 @@
 class AppVectors {
   static final AppVectors _instance = AppVectors.init();
   static AppVectors get instance => _instance;
-
   AppVectors.init();
+
   //! Logos
   final String splash = 'assets/icons/splash_logo.svg';
   final String apple = 'assets/images/apple.png';

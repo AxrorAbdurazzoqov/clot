@@ -1,5 +1,5 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:clot/src/core/service/local_db_service.dart';
 import 'package:clot/src/core/widgets/elevated_button.dart';
 import 'package:clot/src/features/login/provider/about_yourself.dart';
@@ -7,7 +7,7 @@ import 'package:clot/src/features/login/widgets/body_padding.dart';
 import 'package:clot/src/features/login/widgets/custom_drop_down_button.dart';
 import 'package:clot/src/features/login/widgets/questionarie_title.dart';
 import 'package:clot/src/features/login/widgets/title_widget.dart';
-import 'package:clot/src/core/components/navigation/page/navbar.dart';
+import 'package:clot/src/features/navigation/page/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -45,12 +45,12 @@ class _TellUsAboutYourselfState extends State<TellUsAboutYourself> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: context.read<AboutYourselfProvider>().gender ? ColorConst.cPrimary : (checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.grey : ColorConst.darkBg),
+                          color: context.read<AboutYourselfProvider>().gender ? ColorConst.instance.cPrimary : (checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.grey : ColorConst.instance.darkBg),
                           borderRadius: BorderRadius.circular(100),
                         ),
                         height: 52,
                         child: Center(
-                          child: Text("Men", style: TextStyle(fontSize: 16, color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light && !context.read<AboutYourselfProvider>().gender ? ColorConst.black : ColorConst.white, fontFamily: 'Poppins')),
+                          child: Text("Men", style: TextStyle(fontSize: 16, color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light && !context.read<AboutYourselfProvider>().gender ? ColorConst.instance.black : ColorConst.instance.white, fontFamily: 'Poppins')),
                         ),
                       ),
                     ),
@@ -64,12 +64,12 @@ class _TellUsAboutYourselfState extends State<TellUsAboutYourself> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: context.read<AboutYourselfProvider>().gender ? (checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.grey : ColorConst.darkBg) : ColorConst.cPrimary,
+                          color: context.read<AboutYourselfProvider>().gender ? (checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.grey : ColorConst.instance.darkBg) : ColorConst.instance.cPrimary,
                           borderRadius: BorderRadius.circular(100),
                         ),
                         height: 52,
                         child: Center(
-                          child: Text("Women", style: TextStyle(fontSize: 16, color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light && context.read<AboutYourselfProvider>().gender ? ColorConst.black : ColorConst.white, fontFamily: 'Poppins')),
+                          child: Text("Women", style: TextStyle(fontSize: 16, color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light && context.read<AboutYourselfProvider>().gender ? ColorConst.instance.black : ColorConst.instance.white, fontFamily: 'Poppins')),
                         ),
                       ),
                     ),
@@ -85,7 +85,7 @@ class _TellUsAboutYourselfState extends State<TellUsAboutYourself> {
               height: 56,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.grey : ColorConst.darkBg,
+                color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.grey : ColorConst.instance.darkBg,
                 borderRadius: BorderRadius.circular(100),
               ),
               child: const CustomDropDownButton(),
@@ -98,12 +98,12 @@ class _TellUsAboutYourselfState extends State<TellUsAboutYourself> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       behavior: SnackBarBehavior.floating,
-                      backgroundColor: ColorConst.red,
+                      backgroundColor: ColorConst.instance.red,
                       content: Row(
                         children: [
                           Icon(
                             Icons.info,
-                            color: ColorConst.white,
+                            color: ColorConst.instance.white,
                           ),
                           const SizedBox(width: 8),
                           const Text('Pick your age'),

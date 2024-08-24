@@ -1,6 +1,6 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:clot/src/features/home/presentation/widget/custom_search_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,13 +29,13 @@ class _CustomSearchAppBarState extends State<CustomSearchAppBar> {
       leading: Padding(
         padding: const EdgeInsets.only(left: 20),
         child: CircleAvatar(
-          backgroundColor: checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.grey, ColorConst.darkBg),
+          backgroundColor: checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.instance.grey, ColorConst.instance.darkBg),
           child: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: SvgPicture.asset(
               AppVectors.instance.chevronBack,
               height: 24,
-              colorFilter: ColorFilter.mode(checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.black, ColorConst.white), BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.instance.black, ColorConst.instance.white), BlendMode.srcIn),
             ),
           ),
         ),
@@ -48,7 +48,7 @@ class _CustomSearchAppBarState extends State<CustomSearchAppBar> {
           padding: const EdgeInsets.all(14),
           child: Icon(
             CupertinoIcons.xmark,
-            color: checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.black, ColorConst.white),
+            color: checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.instance.black, ColorConst.instance.white),
           ),
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/service/api_servise.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:clot/src/features/home/presentation/pages/category_detail_page.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +45,7 @@ class CatergoryWidget extends StatelessWidget {
                       margin: const EdgeInsets.only(bottom: 8),
                       width: double.infinity,
                       height: 64,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.dark ? ColorConst.darkBg : ColorConst.grey),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.dark ? ColorConst.instance.darkBg : ColorConst.instance.grey),
                       child: Row(
                         children: [
                           const SizedBox(

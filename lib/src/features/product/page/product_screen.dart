@@ -2,7 +2,7 @@ import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/font_style/font_style_const.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/core/model/cloth_model.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:clot/src/features/product/provider/product_provider.dart';
 import 'package:clot/src/features/product/widgets/custom_app_bar_widget.dart';
 import 'package:clot/src/features/product/widgets/custom_choice_widget.dart';
@@ -51,7 +51,7 @@ class ProductScreen extends StatelessWidget {
             ),
             Text(
               '\$${model.price}',
-              style: FontStyleConst.medium.copyWith(color: ColorConst.cPrimary, fontWeight: FontWeight.bold),
+              style: FontStyleConst.medium.copyWith(color: ColorConst.instance.cPrimary, fontWeight: FontWeight.bold),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 24, top: 33),
@@ -77,7 +77,7 @@ class ProductScreen extends StatelessWidget {
                           },
                           child: SvgPicture.asset(
                             AppVectors.instance.dropButton,
-                            colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.white, BlendMode.srcIn),
+                            colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.black : ColorConst.instance.white, BlendMode.srcIn),
                           ),
                         ),
                       ],
@@ -89,7 +89,7 @@ class ProductScreen extends StatelessWidget {
                       children: [
                         CircleAvatar(
                           radius: 8,
-                          backgroundColor: ColorConst.cPrimary,
+                          backgroundColor: ColorConst.instance.cPrimary,
                         ),
                         const SizedBox(width: 29),
                         InkWell(
@@ -106,7 +106,7 @@ class ProductScreen extends StatelessWidget {
                           },
                           child: SvgPicture.asset(
                             AppVectors.instance.dropButton,
-                            colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.white, BlendMode.srcIn),
+                            colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.black : ColorConst.instance.white, BlendMode.srcIn),
                           ),
                         ),
                       ],
@@ -122,7 +122,7 @@ class ProductScreen extends StatelessWidget {
                           },
                           child: CircleAvatar(
                             radius: 20,
-                            backgroundColor: ColorConst.cPrimary,
+                            backgroundColor: ColorConst.instance.cPrimary,
                             child: SvgPicture.asset(AppVectors.instance.increment),
                           ),
                         ),
@@ -136,7 +136,7 @@ class ProductScreen extends StatelessWidget {
                           },
                           child: CircleAvatar(
                             radius: 20,
-                            backgroundColor: ColorConst.cPrimary,
+                            backgroundColor: ColorConst.instance.cPrimary,
                             child: SvgPicture.asset(AppVectors.instance.decrement),
                           ),
                         ),
@@ -156,14 +156,14 @@ class ProductScreen extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 24),
           height: 52,
           width: double.infinity,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: ColorConst.cPrimary),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: ColorConst.instance.cPrimary),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('\$${context.watch<ProductProvider>().price * context.watch<ProductProvider>().quantity}', style: FontStyleConst.medium.copyWith(color: ColorConst.white, fontWeight: FontWeight.bold)),
-                Text('Add to Bag', style: FontStyleConst.medium.copyWith(color: ColorConst.white)),
+                Text('\$${context.watch<ProductProvider>().price * context.watch<ProductProvider>().quantity}', style: FontStyleConst.medium.copyWith(color: ColorConst.instance.white, fontWeight: FontWeight.bold)),
+                Text('Add to Bag', style: FontStyleConst.medium.copyWith(color: ColorConst.instance.white)),
               ],
             ),
           ),

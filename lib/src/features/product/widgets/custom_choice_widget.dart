@@ -1,6 +1,6 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/font_style/font_style_const.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:flutter/material.dart';
 
 class CustomChoiceWidget extends StatelessWidget {
@@ -22,7 +22,7 @@ class CustomChoiceWidget extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        color: checkCurrentMode(MediaQuery.of(context).platformBrightness)== AppThemeMode.light? ColorConst.grey: ColorConst.darkPurple,
+        color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.grey : ColorConst.instance.darkPurple,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

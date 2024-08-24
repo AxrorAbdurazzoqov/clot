@@ -1,7 +1,7 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/core/model/notification_model.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -24,7 +24,7 @@ class NotificationCardWidget extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.grey, ColorConst.darkBg),
+        color: checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.instance.grey, ColorConst.instance.darkBg),
       ),
       child: Row(
         children: [
@@ -32,7 +32,7 @@ class NotificationCardWidget extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 AppVectors.instance.notification,
-                colorFilter: ColorFilter.mode(checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.black, ColorConst.white), BlendMode.srcIn),
+                colorFilter: ColorFilter.mode(checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.instance.black, ColorConst.instance.white), BlendMode.srcIn),
               ),
               Visibility(
                 visible: !data[index].isRead,
@@ -40,7 +40,7 @@ class NotificationCardWidget extends StatelessWidget {
                   top: 0,
                   right: 0,
                   child: CircleAvatar(
-                    backgroundColor: ColorConst.red,
+                    backgroundColor: ColorConst.instance.red,
                     radius: 5,
                   ),
                 ),

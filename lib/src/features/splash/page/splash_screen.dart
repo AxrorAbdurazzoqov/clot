@@ -4,7 +4,7 @@ import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/core/service/local_db_service.dart';
 import 'package:clot/src/features/login/pages/sign_in_email_screen.dart';
-import 'package:clot/src/core/components/navigation/page/navbar.dart';
+import 'package:clot/src/features/navigation/page/navbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.cPrimary,
+      backgroundColor: ColorConst.instance.cPrimary,
       body: Center(
         child: BounceInDown(
           delay: const Duration(milliseconds: 1500),

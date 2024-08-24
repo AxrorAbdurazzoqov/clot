@@ -2,14 +2,14 @@ import 'package:clot/src/core/extensions/check_connection.dart';
 import 'package:clot/src/features/home/data/model/categories_model.dart';
 import 'package:dio/dio.dart';
 
-abstract class CategoriesDataSource {
+abstract class HomeDataSource {
   Future<List<CategoriesModel>> getCategories();
 }
 
-class CategoriesDataSourceImpl extends CategoriesDataSource {
+class HomeDataSourceImpl extends HomeDataSource {
   final Dio _dio;
 
-  CategoriesDataSourceImpl({required Dio dio}) : _dio = dio;
+  HomeDataSourceImpl({required Dio dio}) : _dio = dio;
 
   @override
   Future<List<CategoriesModel>> getCategories() async {

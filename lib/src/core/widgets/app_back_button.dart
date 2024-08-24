@@ -1,6 +1,6 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -24,13 +24,13 @@ class AppBackButton extends StatelessWidget implements PreferredSizeWidget {
           ? Padding(
               padding: const EdgeInsets.only(left: 20),
               child: CircleAvatar(
-                backgroundColor: isLight ? ColorConst.grey : ColorConst.darkBg,
+                backgroundColor: isLight ? ColorConst.instance.grey : ColorConst.instance.darkBg,
                 child: IconButton(
                   onPressed: () => Navigator.pop(context),
                   icon: SvgPicture.asset(
                     AppVectors.instance.chevronBack,
                     height: 24,
-                    colorFilter: ColorFilter.mode(isLight ? ColorConst.black : ColorConst.white, BlendMode.srcIn),
+                    colorFilter: ColorFilter.mode(isLight ? ColorConst.instance.black : ColorConst.instance.white, BlendMode.srcIn),
                   ),
                 ),
               ),

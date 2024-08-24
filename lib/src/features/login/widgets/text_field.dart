@@ -1,5 +1,5 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -25,23 +25,23 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: Theme.of(context).textTheme.headlineMedium!.copyWith(
-              color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.darkGrey : ColorConst.white.withOpacity(0.5),
+              color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.darkGrey : ColorConst.instance.white.withOpacity(0.5),
             ),
         filled: true,
-        fillColor: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.grey : ColorConst.darkBg,
+        fillColor: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.grey : ColorConst.instance.darkBg,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(4),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: ColorConst.cPrimary),
+          borderSide: BorderSide(color: ColorConst.instance.cPrimary),
           borderRadius: BorderRadius.circular(4),
         ),
         errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: ColorConst.red),
+          borderSide: BorderSide(color: ColorConst.instance.red),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: ColorConst.red),
+          borderSide: BorderSide(color: ColorConst.instance.red),
         ),
       ),
     );

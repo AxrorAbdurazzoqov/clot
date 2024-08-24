@@ -22,8 +22,8 @@ class MainProvider extends ChangeNotifier {
 
   Color getNavbarItemColor(int index, bool isLight) {
     if (index == currentIndex) {
-      return ColorConst.cPrimary;
+      return ColorConst.instance.cPrimary;
     }
-    return isLight ? ColorConst.black.withOpacity(0.5) : ColorConst.white.withOpacity(0.5);
+    return isLight ? ColorConst.instance.black.withOpacity(0.5) : ColorConst.instance.white.withOpacity(0.5);
   }
 }

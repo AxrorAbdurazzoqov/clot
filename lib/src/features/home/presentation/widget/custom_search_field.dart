@@ -1,5 +1,5 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -33,23 +33,23 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
           padding: const EdgeInsets.all(14),
           child: SvgPicture.asset(
             AppVectors.instance.search,
-            colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.white.withOpacity(0.5), BlendMode.srcIn),
+            colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.black : ColorConst.instance.white.withOpacity(0.5), BlendMode.srcIn),
           ),
         ),
         suffixIcon: widget.suffixIcon,
         contentPadding: const EdgeInsets.symmetric(vertical: 6),
         hintText: widget.hintText,
         hintStyle: Theme.of(context).textTheme.headlineMedium!.copyWith(
-              color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.white.withOpacity(0.5),
+              color: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.black : ColorConst.instance.white.withOpacity(0.5),
             ),
         filled: true,
-        fillColor: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.grey : ColorConst.darkBg,
+        fillColor: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.grey : ColorConst.instance.darkBg,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(100),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: ColorConst.cPrimary),
+          borderSide: BorderSide(color: ColorConst.instance.cPrimary),
           borderRadius: BorderRadius.circular(100),
         ),
       ),

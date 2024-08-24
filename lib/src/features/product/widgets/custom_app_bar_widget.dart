@@ -1,6 +1,6 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
-import 'package:clot/src/config/theme/app_theme_mode.dart';
+import 'package:clot/src/core/components/theme/app_theme_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -17,10 +17,10 @@ class CustomAppBarWidget extends StatelessWidget implements PreferredSizeWidget 
         padding: const EdgeInsets.only(left: 27),
         child: CircleAvatar(
           radius: 20,
-          backgroundColor: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.grey : ColorConst.darkBg,
+          backgroundColor: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.grey : ColorConst.instance.darkBg,
           child: SvgPicture.asset(
             AppVectors.instance.chevronBack,
-            colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.white, BlendMode.srcIn),
+            colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.black : ColorConst.instance.white, BlendMode.srcIn),
           ),
         ),
       ),
@@ -29,10 +29,10 @@ class CustomAppBarWidget extends StatelessWidget implements PreferredSizeWidget 
           padding: const EdgeInsets.only(right: 27),
           child: CircleAvatar(
             radius: 20,
-            backgroundColor: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.grey : ColorConst.darkBg,
+            backgroundColor: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.grey : ColorConst.instance.darkBg,
             child: SvgPicture.asset(
               AppVectors.instance.favourite,
-              colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.white, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.instance.black : ColorConst.instance.white, BlendMode.srcIn),
             ),
           ),
         ),
