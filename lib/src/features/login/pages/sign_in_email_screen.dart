@@ -1,7 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/font_style/font_style_const.dart';
-import 'package:clot/src/core/constants/icons/icon_const.dart';
+import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/config/theme/app_theme_mode.dart';
 import 'package:clot/src/core/utils/app_validators.dart';
 import 'package:clot/src/features/login/pages/create_account_screen.dart';
@@ -12,7 +12,7 @@ import 'package:clot/src/core/widgets/elevated_button.dart';
 import 'package:clot/src/features/login/widgets/suggestion_helper.dart';
 import 'package:clot/src/features/login/widgets/text_field.dart';
 import 'package:clot/src/features/login/widgets/title_widget.dart';
-import 'package:clot/src/core/components/navbar/page/navbar.dart';
+import 'package:clot/src/core/components/navigation/page/navbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -105,7 +105,7 @@ class _SignInEmailState extends State<SignInEmail> {
                                       child: Image.asset(
                                         context.watch<SignInProvider>().data[index]['icon'],
                                         height: 32,
-                                        color: context.watch<SignInProvider>().data[index]['icon'] == IconConst.apple ? context.read<SignInProvider>().checkAppleIcon(context) : null,
+                                        color: context.watch<SignInProvider>().data[index]['icon'] == AppVectors.instance.apple ? context.read<SignInProvider>().checkAppleIcon(context) : null,
                                       ),
                                     ),
                                     Text(
@@ -131,7 +131,7 @@ class _SignInEmailState extends State<SignInEmail> {
                                       child: Image.asset(
                                         context.watch<SignInProvider>().data[index]['icon'],
                                         height: 32,
-                                        color: context.watch<SignInProvider>().data[index]['icon'] == IconConst.apple ? context.read<SignInProvider>().checkAppleIcon(context) : null,
+                                        color: context.watch<SignInProvider>().data[index]['icon'] == AppVectors.instance.apple ? context.read<SignInProvider>().checkAppleIcon(context) : null,
                                       ),
                                     ),
                                     Text(

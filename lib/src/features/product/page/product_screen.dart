@@ -1,6 +1,6 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/font_style/font_style_const.dart';
-import 'package:clot/src/core/constants/icons/icon_const.dart';
+import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/core/model/cloth_model.dart';
 import 'package:clot/src/config/theme/app_theme_mode.dart';
 import 'package:clot/src/features/product/provider/product_provider.dart';
@@ -36,7 +36,7 @@ class ProductScreen extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 10),
                     height: 248,
                     width: 161,
-                    decoration:  BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(model.image),
                       ),
@@ -76,7 +76,7 @@ class ProductScreen extends StatelessWidget {
                             );
                           },
                           child: SvgPicture.asset(
-                            IconConst.dropButton,
+                            AppVectors.instance.dropButton,
                             colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.white, BlendMode.srcIn),
                           ),
                         ),
@@ -105,7 +105,7 @@ class ProductScreen extends StatelessWidget {
                             );
                           },
                           child: SvgPicture.asset(
-                            IconConst.dropButton,
+                            AppVectors.instance.dropButton,
                             colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.white, BlendMode.srcIn),
                           ),
                         ),
@@ -123,7 +123,7 @@ class ProductScreen extends StatelessWidget {
                           child: CircleAvatar(
                             radius: 20,
                             backgroundColor: ColorConst.cPrimary,
-                            child: SvgPicture.asset(IconConst.increment),
+                            child: SvgPicture.asset(AppVectors.instance.increment),
                           ),
                         ),
                         Padding(
@@ -137,7 +137,7 @@ class ProductScreen extends StatelessWidget {
                           child: CircleAvatar(
                             radius: 20,
                             backgroundColor: ColorConst.cPrimary,
-                            child: SvgPicture.asset(IconConst.decrement),
+                            child: SvgPicture.asset(AppVectors.instance.decrement),
                           ),
                         ),
                       ],

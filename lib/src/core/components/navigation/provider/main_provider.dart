@@ -1,5 +1,5 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/features/home/page/home_screen.dart';
+import 'package:clot/src/features/home/presentation/pages/home_screen.dart';
 import 'package:clot/src/features/notification/page/notification_screen.dart';
 import 'package:clot/src/features/order/page/order_screen.dart';
 import 'package:clot/src/features/settings/page/profile_screen.dart';

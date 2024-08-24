@@ -1,6 +1,6 @@
-import 'package:clot/src/core/constants/icons/icon_const.dart';
+import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/config/theme/app_theme_mode.dart';
-import 'package:clot/src/core/components/navbar/provider/main_provider.dart';
+import 'package:clot/src/core/components/navigation/provider/main_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -23,28 +23,28 @@ class Navbar extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              IconConst.home,
+              AppVectors.instance.home,
               colorFilter: ColorFilter.mode(context.read<MainProvider>().getNavbarItemColor(0, checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light), BlendMode.srcIn),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              IconConst.notification,
+              AppVectors.instance.notification,
               colorFilter: ColorFilter.mode(context.read<MainProvider>().getNavbarItemColor(1, checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light), BlendMode.srcIn),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              IconConst.orders,
+              AppVectors.instance.orders,
               colorFilter: ColorFilter.mode(context.read<MainProvider>().getNavbarItemColor(2, checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light), BlendMode.srcIn),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              IconConst.profile,
+              AppVectors.instance.profile,
               colorFilter: ColorFilter.mode(context.read<MainProvider>().getNavbarItemColor(3, checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light), BlendMode.srcIn),
             ),
             label: '',

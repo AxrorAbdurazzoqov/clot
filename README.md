@@ -1,16 +1,7 @@
-# clot
+# The CLOT ecommerce application
 
-A new Flutter project.
+    - Architecture - MVP (Model-View-Presenter)
+    - State Management - Cubit
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    - [Fake Store Api](https://fakeapi.platzi.com/)
+    - [Figma design](https://www.figma.com/design/WuX1atk1phR2g5lZV94IxE/Ecommerce-Mobile-App-(Community)?node-id=11-1088&t=FJInncXPwRtYEHnv-0)

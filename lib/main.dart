@@ -1,9 +1,9 @@
 import 'package:clot/src/core/constants/theme/app_theme.dart';
 import 'package:clot/src/core/service/local_db_service.dart';
-import 'package:clot/src/features/home/provider/home_provider.dart';
+import 'package:clot/src/features/home/presentation/provider/home_provider.dart';
 import 'package:clot/src/features/login/provider/about_yourself.dart';
 import 'package:clot/src/features/login/provider/sign_in_provider.dart';
-import 'package:clot/src/core/components/navbar/provider/main_provider.dart';
+import 'package:clot/src/core/components/navigation/provider/main_provider.dart';
 import 'package:clot/src/features/notification/provider/notification_provider.dart';
 import 'package:clot/src/features/order/provider/order_provider.dart';
 import 'package:clot/src/features/product/provider/product_provider.dart';

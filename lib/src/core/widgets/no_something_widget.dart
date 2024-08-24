@@ -1,5 +1,5 @@
 import 'package:clot/src/core/widgets/elevated_button.dart';
-import 'package:clot/src/features/home/page/categories_page.dart';
+import 'package:clot/src/features/home/presentation/pages/categories_page.dart';
 import 'package:flutter/material.dart';
 
 class NoSomethingWidget extends StatelessWidget {

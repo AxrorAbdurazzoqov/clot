@@ -1,7 +1,7 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/core/constants/icons/icon_const.dart';
+import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/config/theme/app_theme_mode.dart';
-import 'package:clot/src/features/home/widget/custom_search_field.dart';
+import 'package:clot/src/features/home/presentation/widget/custom_search_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -33,7 +33,7 @@ class _CustomSearchAppBarState extends State<CustomSearchAppBar> {
           child: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: SvgPicture.asset(
-              IconConst.chevronBack,
+              AppVectors.instance.chevronBack,
               height: 24,
               colorFilter: ColorFilter.mode(checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.black, ColorConst.white), BlendMode.srcIn),
             ),

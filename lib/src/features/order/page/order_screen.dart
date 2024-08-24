@@ -1,5 +1,5 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/core/constants/icons/icon_const.dart';
+import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/core/widgets/app_back_button.dart';
 import 'package:clot/src/core/widgets/no_something_widget.dart';
 import 'package:clot/src/features/order/provider/order_provider.dart';
@@ -17,7 +17,7 @@ class OrderScreen extends StatelessWidget {
         title: 'Orders',
       ),
       body: context.watch<OrderProvider>().orders.isEmpty
-          ? const NoSomethingWidget(icon: IconConst.noOrders, title: 'No Orders yet')
+          ?  NoSomethingWidget(icon: AppVectors.instance.noOrders, title: 'No Orders yet')
           : Column(
               children: [
                 Container(

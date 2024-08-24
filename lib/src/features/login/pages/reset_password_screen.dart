@@ -1,5 +1,5 @@
 import 'package:clot/src/core/constants/font_style/font_style_const.dart';
-import 'package:clot/src/core/constants/icons/icon_const.dart';
+import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/core/widgets/elevated_button.dart';
 import 'package:clot/src/features/login/pages/sign_in_password_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ class ResetPasswordScreen extends StatelessWidget {
             SizedBox(
               height: 100,
               width: 100,
-              child: Image.asset(IconConst.email),
+              child: Image.asset(AppVectors.instance.email),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24),

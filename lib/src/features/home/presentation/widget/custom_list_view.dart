@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class CustomListViewWidget extends StatelessWidget {
-  const CustomListViewWidget({super.key, required this.soryBy});
-
-  final VoidCallback soryBy;
+  const CustomListViewWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

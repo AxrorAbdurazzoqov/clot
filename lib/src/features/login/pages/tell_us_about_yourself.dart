@@ -7,7 +7,7 @@ import 'package:clot/src/features/login/widgets/body_padding.dart';
 import 'package:clot/src/features/login/widgets/custom_drop_down_button.dart';
 import 'package:clot/src/features/login/widgets/questionarie_title.dart';
 import 'package:clot/src/features/login/widgets/title_widget.dart';
-import 'package:clot/src/core/components/navbar/page/navbar.dart';
+import 'package:clot/src/core/components/navigation/page/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

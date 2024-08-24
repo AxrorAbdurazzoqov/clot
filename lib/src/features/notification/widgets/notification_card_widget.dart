@@ -1,5 +1,5 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/core/constants/icons/icon_const.dart';
+import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/core/model/notification_model.dart';
 import 'package:clot/src/config/theme/app_theme_mode.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class NotificationCardWidget extends StatelessWidget {
           Stack(
             children: [
               SvgPicture.asset(
-                IconConst.notification,
+                AppVectors.instance.notification,
                 colorFilter: ColorFilter.mode(checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.black, ColorConst.white), BlendMode.srcIn),
               ),
               Visibility(

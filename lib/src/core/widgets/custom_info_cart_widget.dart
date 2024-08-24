@@ -1,6 +1,6 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/font_style/font_style_const.dart';
-import 'package:clot/src/core/constants/icons/icon_const.dart';
+import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/config/theme/app_theme_mode.dart';
 import 'package:clot/src/core/utils/mock_data.dart';
 import 'package:clot/src/features/product/page/product_screen.dart';
@@ -48,7 +48,7 @@ class CustomInfoCartWidget extends StatelessWidget {
                   child: IconButton(
                     onPressed: () {},
                     icon: SvgPicture.asset(
-                      IconConst.favourite,
+                      AppVectors.instance.favourite,
                       height: 24,
                       colorFilter: ColorFilter.mode(checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light ? ColorConst.black : ColorConst.grey, BlendMode.srcIn),
                     ),

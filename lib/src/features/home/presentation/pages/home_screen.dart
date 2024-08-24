@@ -1,14 +1,14 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/core/constants/icons/icon_const.dart';
+import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/core/model/category_model.dart';
 import 'package:clot/src/core/service/api_servise.dart';
 import 'package:clot/src/config/theme/app_theme_mode.dart';
-import 'package:clot/src/features/home/page/categories_page.dart';
-import 'package:clot/src/features/home/page/category_detail_page.dart';
-import 'package:clot/src/features/home/provider/home_provider.dart';
-import 'package:clot/src/features/home/widget/custom_search_field.dart';
-import 'package:clot/src/features/home/widget/custom_title_see_all.dart';
-import 'package:clot/src/core/components/navbar/provider/main_provider.dart';
+import 'package:clot/src/features/home/presentation/pages/categories_page.dart';
+import 'package:clot/src/features/home/presentation/pages/category_detail_page.dart';
+import 'package:clot/src/features/home/presentation/provider/home_provider.dart';
+import 'package:clot/src/features/home/presentation/widget/custom_search_field.dart';
+import 'package:clot/src/features/home/presentation/widget/custom_title_see_all.dart';
+import 'package:clot/src/core/components/navigation/provider/main_provider.dart';
 import 'package:clot/src/features/search/page/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 hint: Text(context.watch<HomeProvider>().gender ? 'Men' : 'Women '),
                 icon: SvgPicture.asset(
-                  IconConst.dropButton,
+                  AppVectors.instance.dropButton,
                   colorFilter: ColorFilter.mode(checkCurrentModeAndGetColor(MediaQuery.of(context).platformBrightness, ColorConst.black, ColorConst.white), BlendMode.srcIn),
                   height: 16,
                 ),
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: CircleAvatar(
                 radius: 25,
                 backgroundColor: ColorConst.cPrimary,
-                child: SvgPicture.asset(IconConst.bag),
+                child: SvgPicture.asset(AppVectors.instance.bag),
               ),
             ),
             const SizedBox(width: 24),
@@ -123,14 +123,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           return ListView.builder(
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
-                            itemCount: 5,
+                            itemCount: snap.data!.length,
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const CategoriesDetailPage(
-                                      modelTitle: 'title',
+                                    builder: (context) => CategoriesDetailPage(
+                                      modelTitle: snap.data![index].name,
                                     ),
                                   ),
                                 ),
@@ -172,13 +172,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                   ),
-                  CustomTitleSeeAll(
-                    title: 'Top Sellings',
-                    onPressed: () {},
-                  ),
+                  // CustomTitleSeeAll(
+                  //   title: 'Top Sellings',
+                  //   onPressed: () {},
+                  // ),
                   // CustomListViewWidget(
-                  //   modelTitle: ,
-                  //   isLight: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light,
+
                   // ),
                   // CustomTitleSeeAll(
                   //   title: 'New In',
@@ -186,8 +185,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   //   onPressed: () {},
                   // ),
                   // CustomListViewWidget(
-                  //   modelTitle: context.watch<HomeProvider>().categoryModel.last.name.toLowerCase(),
-                  //   isLight: checkCurrentMode(MediaQuery.of(context).platformBrightness) == AppThemeMode.light,
                   // ),
                 ],
               ),

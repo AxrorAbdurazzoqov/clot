@@ -1,7 +1,7 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/service/api_servise.dart';
 import 'package:clot/src/config/theme/app_theme_mode.dart';
-import 'package:clot/src/features/home/page/category_detail_page.dart';
+import 'package:clot/src/features/home/presentation/pages/category_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class CatergoryWidget extends StatelessWidget {

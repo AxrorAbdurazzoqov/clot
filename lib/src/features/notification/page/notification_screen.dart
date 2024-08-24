@@ -1,5 +1,5 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/core/constants/icons/icon_const.dart';
+import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/core/model/notification_model.dart';
 import 'package:clot/src/core/widgets/app_back_button.dart';
 import 'package:clot/src/core/widgets/no_something_widget.dart';
@@ -67,9 +67,9 @@ class NotificationScreen extends StatelessWidget {
               ),
             ),
           )
-        : const NoSomethingWidget(
+        : NoSomethingWidget(
             title: 'No Notification yet',
-            icon: IconConst.noNotification,
+            icon: AppVectors.instance.noNotification,
           );
   }
 }
