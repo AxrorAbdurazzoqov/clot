@@ -1,8 +1,9 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
-import 'package:clot/src/core/model/category_model.dart';
-import 'package:clot/src/core/service/api_servise.dart';
-import 'package:clot/src/core/components/theme/app_theme_mode.dart';
+import 'package:clot/src/core/constants/theme/app_theme_mode.dart';
+import 'package:clot/src/features/home/presentation/bloc/home_bloc.dart';
+import 'package:clot/src/features/home/presentation/bloc/home_event.dart';
+import 'package:clot/src/features/home/presentation/bloc/home_state.dart';
 import 'package:clot/src/features/home/presentation/pages/categories_page.dart';
 import 'package:clot/src/features/home/presentation/pages/category_detail_page.dart';
 import 'package:clot/src/features/home/presentation/provider/home_provider.dart';
@@ -11,8 +12,8 @@ import 'package:clot/src/features/home/presentation/widget/custom_title_see_all.
 import 'package:clot/src/features/navigation/provider/main_provider.dart';
 import 'package:clot/src/features/search/page/search_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    BlocProvider.of<HomeBloc>(context).add(GetCategoriesEvent());
   }
 
   @override
@@ -44,10 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
           toolbarHeight: 70,
           centerTitle: true,
           leadingWidth: 70,
-          leading: const Padding(
-            padding: EdgeInsets.only(left: 24),
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 24),
             child: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/avatar.png'),
+              backgroundImage: AssetImage(AppVectors.instance.defaultAvatar),
             ),
           ),
           title: Container(
@@ -116,40 +118,39 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(
                     height: 100,
-                    child: FutureBuilder(
-                      future: ApiServise.instance.getCategories(),
-                      builder: (BuildContext context, AsyncSnapshot<List<CategoryModel>> snap) {
-                        if (snap.hasData) {
+                    child: BlocBuilder<HomeBloc, HomeState>(
+                      builder: (context, state) {
+                        if (state.status == HomeStatus.success) {
                           return ListView.builder(
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
-                            itemCount: snap.data!.length,
+                            itemCount: 5,
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => CategoriesDetailPage(
-                                      modelTitle: snap.data![index].name,
+                                      modelTitle: state.categoriesModel![index].name,
                                     ),
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.only(right: 13.5),
+                                  padding: const EdgeInsets.only(right: 5),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       CircleAvatar(
                                         radius: 28,
-                                        backgroundImage: NetworkImage(snap.data![index].image),
+                                        backgroundImage: NetworkImage(state.categoriesModel![index].image),
                                       ),
                                       const SizedBox(height: 5),
                                       SizedBox(
                                         width: 65,
                                         child: Center(
                                           child: Text(
-                                            snap.data![index].name,
+                                            state.categoriesModel![index].name,
                                             style: Theme.of(context).textTheme.headlineSmall,
                                             maxLines: 2,
                                             overflow: TextOverflow.ellipsis,
@@ -162,10 +163,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               );
                             },
                           );
-                        } else if (snap.hasError) {
-                          return const Center(
-                            child: Text('Something Went Wrong!'),
-                          );
+                        } else if (state.status == HomeStatus.error) {
+                          return Center(child: Text(state.errorMessage));
                         } else {
                           return const Center(child: CircularProgressIndicator.adaptive());
                         }

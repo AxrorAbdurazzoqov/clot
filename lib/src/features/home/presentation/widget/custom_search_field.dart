@@ -1,5 +1,5 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/core/components/theme/app_theme_mode.dart';
+import 'package:clot/src/core/constants/theme/app_theme_mode.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

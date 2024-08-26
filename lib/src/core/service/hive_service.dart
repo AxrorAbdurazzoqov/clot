@@ -6,13 +6,14 @@ class HiveService {
   static const clotBox = 'clot_box';
 
   //! Singleton
-  static HiveService get instantiate => HiveService.init();
+  static final HiveService _instance = HiveService.init();
+  static HiveService get instance => _instance;
   HiveService.init();
 
   //! init
-  void createBox() async {
+  Future<void> createBox() async {
     await Hive.initFlutter();
-    Hive.registerAdapter(UserDataModelAdapter());
+    Hive.registerAdapter(UserInfoModelAdapter());
     box = await Hive.openBox(clotBox);
   }
 

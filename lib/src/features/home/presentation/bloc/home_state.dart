@@ -8,7 +8,7 @@ class HomeState extends Equatable {
 
   const HomeState({this.errorMessage = 'Something went wrong', this.categoriesModel, required this.status});
 
-  HomeState copyWith({HomeStatus? status, List<CategoriesModel>? categoriesModel, String? errorMessate}) => HomeState(errorMessage:  errorMessage, categoriesModel:categoriesModel??this.categoriesModel, status: status?? this.status);
+  HomeState copyWith({HomeStatus? status, List<CategoriesModel>? categoriesModel, String? errorMessate}) => HomeState(errorMessage: errorMessage, categoriesModel: categoriesModel ?? this.categoriesModel, status: status ?? this.status);
 
   @override
   List<Object?> get props => [

@@ -1,7 +1,7 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
 import 'package:clot/src/core/constants/font_style/font_style_const.dart';
 import 'package:clot/src/core/model/cloth_model.dart';
-import 'package:clot/src/core/components/theme/app_theme_mode.dart';
+import 'package:clot/src/core/constants/theme/app_theme_mode.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

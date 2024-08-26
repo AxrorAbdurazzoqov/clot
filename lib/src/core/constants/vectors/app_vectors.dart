@@ -30,4 +30,6 @@ class AppVectors {
   final String orders = 'assets/icons/orders.svg';
   final String profile = 'assets/icons/profile.svg';
   //!
+
+  final String defaultAvatar = 'assets/images/default_avatar.png';
 }

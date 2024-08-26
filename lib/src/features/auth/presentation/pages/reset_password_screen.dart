@@ -1,7 +1,7 @@
 import 'package:clot/src/core/constants/font_style/font_style_const.dart';
 import 'package:clot/src/core/constants/vectors/app_vectors.dart';
 import 'package:clot/src/core/widgets/elevated_button.dart';
-import 'package:clot/src/features/login/pages/sign_in_password_screen.dart';
+import 'package:clot/src/features/auth/presentation/pages/sign_in_password_screen.dart';
 import 'package:flutter/material.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
@@ -22,7 +22,7 @@ class ResetPasswordScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24),
-              child: Text('We Sent you an Email to reset\nyour password.', style: FontStyleConst.big.copyWith(fontWeight: FontWeight.bold, fontSize: 20)),
+              child: Text("We've sent a code to your email to enter your account", style: FontStyleConst.big.copyWith(fontWeight: FontWeight.bold, fontSize: 20), textAlign: TextAlign.center),
             ),
             CustomElevatedButton(
               text: 'Return to Login',

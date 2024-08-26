@@ -5,4 +5,4 @@ class FontStyleConst {
   static TextStyle medium = const TextStyle(fontSize: 18, fontFamily: 'Poppins');
   static TextStyle big = const TextStyle(fontSize: 24, fontFamily: 'Poppins');
   static TextStyle huge = const TextStyle(fontSize: 32, fontFamily: 'Poppins');
-}
+}  

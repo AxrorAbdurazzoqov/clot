@@ -1,12 +1,15 @@
+import 'dart:async';
+
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/core/components/theme/app_theme_mode.dart';
-import 'package:clot/src/core/service/local_db_service.dart';
+import 'package:clot/src/core/constants/font_style/font_style_const.dart';
+import 'package:clot/src/core/constants/theme/app_theme_mode.dart';
+import 'package:clot/src/core/extensions/get_mediaqueyr_height_width.dart';
+import 'package:clot/src/core/extensions/show_custom_snack_bar.dart';
+import 'package:clot/src/core/service/hive_service.dart';
 import 'package:clot/src/core/widgets/elevated_button.dart';
-import 'package:clot/src/features/login/provider/about_yourself.dart';
-import 'package:clot/src/features/login/widgets/body_padding.dart';
-import 'package:clot/src/features/login/widgets/custom_drop_down_button.dart';
-import 'package:clot/src/features/login/widgets/questionarie_title.dart';
-import 'package:clot/src/features/login/widgets/title_widget.dart';
+import 'package:clot/src/features/auth/provider/about_yourself.dart';
+import 'package:clot/src/features/auth/presentation/widgets/custom_drop_down_button.dart';
+import 'package:clot/src/features/auth/presentation/widgets/questionarie_title.dart';
 import 'package:clot/src/features/navigation/page/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,14 +25,15 @@ class _TellUsAboutYourselfState extends State<TellUsAboutYourself> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BodyPadding(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: context.getHeight * 0.08),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 50, bottom: 49),
-              child: CustomTitleWidget(title: 'Tell Us About Yourself'),
+            Padding(
+              padding: const EdgeInsets.only(top: 50, bottom: 49),
+              child: Text('Tell Us About Yourself', style: FontStyleConst.huge.copyWith(fontWeight: FontWeight.w700)),
             ),
             const QuestionaireText(text: 'What do you shop for?'),
             Padding(
@@ -95,26 +99,15 @@ class _TellUsAboutYourselfState extends State<TellUsAboutYourself> {
               text: 'Finish',
               onTap: () {
                 if (Provider.of<AboutYourselfProvider>(context, listen: false).value == 'Age range') {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      behavior: SnackBarBehavior.floating,
-                      backgroundColor: ColorConst.instance.red,
-                      content: Row(
-                        children: [
-                          Icon(
-                            Icons.info,
-                            color: ColorConst.instance.white,
-                          ),
-                          const SizedBox(width: 8),
-                          const Text('Pick your age'),
-                        ],
-                      ),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
+                  context.showCustomSnackBar(color: ColorConst.instance.red, title: 'Pick your age');
                 } else {
-                  HiveService.instantiate.writeData(key: 'gender', value: Provider.of<AboutYourselfProvider>(context, listen: false).gender);
+                  HiveService.instance.writeData(key: 'gender', value: Provider.of<AboutYourselfProvider>(context, listen: false).gender);
+                  Timer(
+                    const Duration(seconds: 2),
+                    () {
+                      context.showCustomSnackBar(color: ColorConst.instance.orange, title: 'Pick your age');
+                    },
+                  );
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const Navbar()), (_) => false);
                 }
               },

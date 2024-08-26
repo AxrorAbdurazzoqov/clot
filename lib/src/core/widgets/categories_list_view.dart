@@ -1,8 +1,10 @@
 import 'package:clot/src/core/constants/color/color_const.dart';
-import 'package:clot/src/core/service/api_servise.dart';
-import 'package:clot/src/core/components/theme/app_theme_mode.dart';
+import 'package:clot/src/core/constants/theme/app_theme_mode.dart';
+import 'package:clot/src/features/home/presentation/bloc/home_bloc.dart';
+import 'package:clot/src/features/home/presentation/bloc/home_state.dart';
 import 'package:clot/src/features/home/presentation/pages/category_detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CatergoryWidget extends StatelessWidget {
   const CatergoryWidget({
@@ -24,20 +26,19 @@ class CatergoryWidget extends StatelessWidget {
         const SizedBox(
           height: 14,
         ),
-        FutureBuilder(
-          future: ApiServise.instance.getCategories(),
-          builder: (BuildContext context, AsyncSnapshot snap) {
-            if (snap.hasData) {
+        BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            if (state.status == HomeStatus.success) {
               return ListView.builder(
                 shrinkWrap: true,
-                itemCount: 4,
+                itemCount: 5,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => CategoriesDetailPage(
-                          modelTitle: snap.data[index].name,
+                          modelTitle: state.categoriesModel![index].name,
                         ),
                       ),
                     ),
@@ -54,14 +55,14 @@ class CatergoryWidget extends StatelessWidget {
                           CircleAvatar(
                             radius: 40 / 2,
                             backgroundImage: NetworkImage(
-                              snap.data[index].image,
+                              state.categoriesModel![index].image,
                             ),
                           ),
                           const SizedBox(
                             width: 16,
                           ),
                           Text(
-                            snap.data[index].name,
+                            state.categoriesModel![index].name,
                             style: Theme.of(context).textTheme.headlineMedium,
                           )
                         ],
@@ -70,9 +71,9 @@ class CatergoryWidget extends StatelessWidget {
                   );
                 },
               );
-            } else if (snap.hasError) {
+            } else if (state.status == HomeStatus.error) {
               return Center(
-                child: Text('Error ${snap.error}'),
+                child: Text('Error ${state.errorMessage}'),
               );
             } else {
               return const Center(

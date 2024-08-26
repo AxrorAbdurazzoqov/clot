@@ -6,17 +6,17 @@ part of 'user_data_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class UserDataModelAdapter extends TypeAdapter<UserDataModel> {
+class UserInfoModelAdapter extends TypeAdapter<UserInfoModel> {
   @override
   final int typeId = 1;
 
   @override
-  UserDataModel read(BinaryReader reader) {
+  UserInfoModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return UserDataModel(
+    return UserInfoModel(
       firstName: fields[0] as String,
       lastName: fields[1] as String,
       email: fields[2] as String,
@@ -26,7 +26,7 @@ class UserDataModelAdapter extends TypeAdapter<UserDataModel> {
   }
 
   @override
-  void write(BinaryWriter writer, UserDataModel obj) {
+  void write(BinaryWriter writer, UserInfoModel obj) {
     writer
       ..writeByte(5)
       ..writeByte(0)
@@ -47,7 +47,7 @@ class UserDataModelAdapter extends TypeAdapter<UserDataModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is UserDataModelAdapter &&
+      other is UserInfoModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
