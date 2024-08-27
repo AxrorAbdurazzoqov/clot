@@ -1,7 +1,23 @@
-abstract class SplashState{}
+import 'package:clot/src/features/splash/data/model/user_model.dart';
+import 'package:equatable/equatable.dart';
 
-class SplashInitialState extends SplashState {}
+abstract class SplashState extends Equatable {}
 
-class SplashAuthenticatedState extends SplashState {}
+class SplashInitialState extends SplashState {
+  @override
+  List<Object?> get props => [];
+}
 
-class SplashUnAuthenticatedState extends SplashState {}
+class SplashAuthenticatedState extends SplashState {
+  final UserModel userInfo;
+
+  SplashAuthenticatedState({required this.userInfo});
+
+  @override
+  List<Object?> get props => [];
+}
+
+class SplashUnAuthenticatedState extends SplashState {
+  @override
+  List<Object?> get props => [];
+}

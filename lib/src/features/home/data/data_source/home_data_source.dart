@@ -17,19 +17,19 @@ class HomeDataSourceImpl extends HomeDataSource {
   Future<List<CategoriesModel>> getCategories() async {
     try {
       final Response response = await _dio.get('https://api.escuelajs.co/api/v1/categories');
-
       if (response.checkStatusCode) {
         return (response.data as List).map((json) => CategoriesModel.fromJson(json)).toList();
       } else {
         throw Exception(response.statusMessage);
       }
     } catch (e) {
+      print(e);
       rethrow;
     }
   }
-  
+
   @override
-  Future<List<ProductsModel>> getAllProductsByCategory(int id) async{
+  Future<List<ProductsModel>> getAllProductsByCategory(int id) async {
     try {
       final Response response = await _dio.get('https://api.escuelajs.co/api/v1/categories/$id/products');
 

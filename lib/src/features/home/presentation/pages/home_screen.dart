@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           child: Text(
                                             state.categoriesModel![index].name,
                                             style: Theme.of(context).textTheme.headlineSmall,
-                                            maxLines: 2,
+                                            maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                         ),

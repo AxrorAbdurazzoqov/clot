@@ -9,6 +9,7 @@ import 'package:clot/src/features/splash/presentation/bloc/splash_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -31,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return BlocListener<SplashBloc, SplashState>(
       listener: (context, state) {
         if (state is SplashAuthenticatedState) {
-          Navigator.pushReplacementNamed(context, '/navbar');
+          Navigator.pushReplacementNamed(context, '/navbar', arguments: state.userInfo);
         } else if (state is SplashUnAuthenticatedState) {
           Navigator.pushReplacementNamed(context, '/sign_in_email');
         }
@@ -39,9 +40,23 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Scaffold(
         backgroundColor: ColorConst.instance.cPrimary,
         body: Center(
-          child: ZoomIn(
-            duration: const Duration(seconds: 2),
-            child: SvgPicture.asset(AppVectors.instance.splash, height: 80),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 7,
+                child: ZoomIn(
+                  duration: const Duration(seconds: 2),
+                  child: SvgPicture.asset(AppVectors.instance.splash, height: 80),
+                ),
+              ),
+              Expanded(
+                child: ElasticInUp(
+                  duration: const Duration(seconds: 2),
+                  child: LottieBuilder.asset(AppVectors.instance.loading, width: 200, ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

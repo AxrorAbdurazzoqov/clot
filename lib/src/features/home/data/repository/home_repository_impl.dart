@@ -11,6 +11,7 @@ class HomeRepositoryImpl extends HomeRepository {
 
   @override
   Future<Either<Error, List<CategoriesModel>>> getCategories() async {
+
     try {
       final result = await _homeDataSource.getCategories();
       return Right(result);

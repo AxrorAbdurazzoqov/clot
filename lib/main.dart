@@ -12,6 +12,9 @@ import 'package:clot/src/features/navigation/provider/main_provider.dart';
 import 'package:clot/src/features/notification/provider/notification_provider.dart';
 import 'package:clot/src/features/order/provider/order_provider.dart';
 import 'package:clot/src/features/product/provider/product_provider.dart';
+import 'package:clot/src/features/splash/data/data_source/splash_data_source.dart';
+import 'package:clot/src/features/splash/data/repository/splash_repository_impl.dart';
+import 'package:clot/src/features/splash/domain/usecase/splash_usecase.dart';
 import 'package:clot/src/features/splash/presentation/bloc/splash_bloc.dart';
 import 'package:clot/src/features/splash/presentation/page/splash_screen.dart';
 import 'package:dio/dio.dart';
@@ -37,7 +40,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => NotificationProvider()),
         ChangeNotifierProvider(create: (context) => OrderProvider()),
         BlocProvider(create: (_) => HomeBloc(categoriesUseCase: CategoriesUseCase(repository: HomeRepositoryImpl(homeDataSource: HomeDataSourceImpl(dio: Dio()))))),
-        BlocProvider(create: (_) => SplashBloc()),
+        BlocProvider(create: (_) => SplashBloc(splashUsecase: SplashUsecase(repository: SplashRepositoryImpl(splashDataSource: SplashDataSourceImpl(dio: Dio()))))),
       ],
       child: const Clot(),
     ),

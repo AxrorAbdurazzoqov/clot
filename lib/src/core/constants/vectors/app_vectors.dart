@@ -32,4 +32,8 @@ class AppVectors {
   //!
 
   final String defaultAvatar = 'assets/images/default_avatar.png';
+
+  //! Lotties
+  final String loading = 'assets/lotties/loading.json';
+
 }

@@ -11,7 +11,7 @@ class AppRoutes {
     final Object? args = settings.arguments;
     switch (settings.name) {
       case '/navbar':
-        return pageReturner(const Navbar());
+        return pageReturner(Navbar());
       case '/sign_in_email':
         return pageReturner(const SignInEmail());
       default:

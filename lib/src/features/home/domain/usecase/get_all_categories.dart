@@ -9,6 +9,6 @@ class CategoriesUseCase extends UseCase<List<CategoriesModel>, NoParams> {
   CategoriesUseCase({required HomeRepository repository}) : _repository = repository;
   @override
   Future<Either<Error, List<CategoriesModel>>> call(NoParams params) async {
-    return _repository.getCategories(); 
+    return _repository.getCategories();
   }
 }
